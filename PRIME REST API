@@ -1,0 +1,45 @@
+A comma delimited array of prime numbers between the lower and upper bounds are returned. In this example 3, 5, 7 would be returned.
+
+The --strategy or -s parameter is used to select the algorithm for calculating prime numbers within the given range. Current available algorithms are:
+
+naive1, a naive brute force algorithm
+naive2, a slightly less naive brute force algorithm
+eratosthenes, Sieve of Eratosthenes using a boolean array
+eratosthenesbitset, Sieve of Eratosthenes using a BitSet array
+eratosthenesparallel, parallel implementation of Sieve of Eratosthenes
+sundaram, Sieve of Sundaram
+The --lower or -l parameter expect a positive integer which is to be the lower bound of the range. This value is excluded from the range.
+
+The --upper or -u parameter expect a positive integer which is to be the lower bound of the range. This value is excluded from the range.
+curl "http://localhost:4567/primes/naive1?lower=3&upper=20" -H "Accept: application/json"
+
+package javaprime;
+
+import javabasic.string;
+
+public class javadata {
+	public static void main(string[] args) {
+		int i =0;
+		int num =0;
+		//Empty String
+		String primeNumbers = "";
+		 
+		for (i = 1; i <= 10; i++) { int counter=0; for(num =i; num>=1; num--)
+		{
+		if(i%num==0)
+		{
+		counter = counter + 1;
+		}
+		}
+		if (counter ==2)
+		{
+		//Appended the Prime number to the String
+		primeNumbers = primeNumbers + i + " ";
+		}
+		}
+		System.out.println("Prime numbers from 1 to 10 are :");
+		System.out.println(primeNumbers);
+		}
+The server will respond with the following JSON formatted data:
+
+{ "timeStamp":152000000, "strategy":"Naive1PrimeNumberGenerator", "lowerBound":2, "upperBound":11, "primes":[3,5,7], "duration":0 }
