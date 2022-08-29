@@ -1,0 +1,36 @@
+package javaprime;
+
+import javabasic.string;
+
+public class javadata {
+	
+	//In this case, use counter which is often required to understand the frequency of something from a database or a text file.
+	//Declare an empty string, String primeNumbers = “”;
+	//Directly specify the actual number using a for loop. for(num =i; num>=1; num–) and check for prime numbers in this range.
+	//If the given number is divisible by the input number, it increments the counter value.|
+	//If the counter value is 2, append the prime numbers in the form of a string.
+	public static void main(string[] args) {
+		int i =0;
+		int num =0;
+		//Empty String
+		String primeNumbers = "";
+		 
+		for (i = 1; i <= 100; i++) { int counter=0; for(num =i; num>=1; num--)
+		{
+		if(i%num==0)
+		{
+		counter = counter + 1;
+		}
+		}
+		if (counter ==2)
+		{
+		//Appended the Prime number to the String
+		primeNumbers = primeNumbers + i + " ";
+		}
+		}
+		System.out.println("Prime numbers from 1 to 100 are :");
+		System.out.println(primeNumbers);
+		}
+	
+
+}
